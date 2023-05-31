@@ -1,0 +1,1 @@
+/usr/bin/c++   -fPIC -O2 -g -DNDEBUG  -rdynamic CMakeFiles/time_test.dir/time_test.cpp.o  -o time_test  libvrpnserver.a quat/libquat.a -lm -lpthread -lusb-1.0 /usr/lib/x86_64-linux-gnu/libjsoncpp.so.1.7.4 atmellib/libvrpn_atmel.a gpsnmealib/libgpsnmea.a 

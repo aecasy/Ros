@@ -1,0 +1,2 @@
+catkin_simple:rmep:vrpn_catkin:vrpn_client_ros
+-DCATKIN_DEVEL_PREFIX=/home/meshib/meshi_ws/devel -DCMAKE_INSTALL_PREFIX=/home/meshib/meshi_ws/install -G Unix Makefiles

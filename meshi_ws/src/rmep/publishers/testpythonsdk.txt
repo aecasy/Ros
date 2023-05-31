@@ -1,0 +1,85 @@
+# -*-coding:utf-8-*-
+# Copyright (c) 2020 DJI.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License in the file LICENSE.txt or at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+import time
+import robomaster
+from robomaster import robot
+
+import rospy
+from geometry_msgs.msg import Twist
+from std_msgs.msg import String
+import socket
+import sys
+from datetime import datetime
+import pickle
+from time import sleep
+
+RPMplot=[]
+timevalues=[]
+
+def sub_esc_info_handler(esc_info):
+    
+    global RPMplot
+    global timevalues
+    speed, angle, timestamp, state = esc_info
+    print("chassis esc: speed:{0}".format(speed))
+    RPMplot.append(speed[0])
+    timevalues.append((datetime.now()-start).total_seconds()*1000)
+    with open('outfile3', 'wb') as fp3:
+        pickle.dump(timevalues, fp3)
+    with open('outfile2', 'wb') as fp2:
+        pickle.dump(RPMplot, fp2)
+
+
+if __name__ == '__main__':
+    ep_robot = robot.Robot()
+    ep_robot.initialize(conn_type="sta")
+
+    ep_chassis = ep_robot.chassis
+
+    # 订阅底盘电调信息
+    
+    
+    for i in range(10):
+        
+        ep_chassis.sub_esc(freq=10, callback=sub_esc_info_handler)
+        time.sleep(1)
+        ep_chassis.drive_wheels(w1=0, w2=0, w3=0, w4=0)
+        print("Hello worlda")
+        ep_chassis.unsub_esc()
+        print("Hello world")
+        start=datetime.now()
+        while (datetime.now()-start).total_seconds()<2:
+            ep_chassis.sub_esc(freq=10, callback=sub_esc_info_handler)
+            time.sleep(1)
+            ep_chassis.unsub_esc()
+            pass
+        ep_chassis.drive_wheels(w1=500, w2=0, w3=0, w4=0)
+        while (datetime.now()-start).total_seconds()<5:
+            ep_chassis.sub_esc(freq=10, callback=sub_esc_info_handler)
+            time.sleep(1)
+            ep_chassis.unsub_esc()
+            pass
+        ep_chassis.drive_wheels(w1=0, w2=0, w3=0, w4=0)
+        while (datetime.now()-start).total_seconds()<6:
+            ep_chassis.sub_esc(freq=10, callback=sub_esc_info_handler)
+            time.sleep(1)
+            ep_chassis.unsub_esc()
+            pass
+
+    
+
+    ep_robot.close()

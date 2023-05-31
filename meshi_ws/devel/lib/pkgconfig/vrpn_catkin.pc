@@ -1,0 +1,8 @@
+prefix=/home/meshib/meshi_ws/devel
+
+Name: vrpn_catkin
+Description: Description of vrpn_catkin
+Version: 0.0.0
+Cflags: -I/home/meshib/meshi_ws/devel/include/vrpn
+Libs: -L${prefix}/lib -lvrpn_catkin
+Requires: 

@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src/client_src/c_interface.h
+
+/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src/client_src/c_interface_example.c
+stdio.h
+-
+c_interface.h
+/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src/client_src/c_interface.h
+

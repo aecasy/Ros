@@ -1,0 +1,1 @@
+/usr/bin/c++   -fPIC -O2 -g -DNDEBUG  -rdynamic CMakeFiles/test_mutex.dir/test_mutex.C.o  -o test_mutex  ../libvrpn.a ../quat/libquat.a -lm -lpthread 

@@ -1,0 +1,8 @@
+prefix=/home/meshib/meshi_ws/devel
+
+Name: vrpn_client_ros
+Description: Description of vrpn_client_ros
+Version: 0.2.2
+Cflags: -I/home/meshib/meshi_ws/src/vrpn_client_ros/include
+Libs: -L${prefix}/lib -lvrpn_client_ros
+Requires: geometry_msgs tf2_ros

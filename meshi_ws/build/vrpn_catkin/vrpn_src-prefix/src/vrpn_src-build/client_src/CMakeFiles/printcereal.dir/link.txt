@@ -1,0 +1,1 @@
+/usr/bin/c++   -fPIC -O2 -g -DNDEBUG  -rdynamic CMakeFiles/printcereal.dir/printcereal.C.o  -o printcereal  ../libvrpn.a ../quat/libquat.a -lm -lpthread 

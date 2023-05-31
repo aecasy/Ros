@@ -1,0 +1,92 @@
+<launch>
+<!-- <node name = "input_topic_throttlerPurlple" type="throttle" pkg="topic_tools" args= "messages /vrpn_client_node/RigidBody/pose 100 /mavros/vision_pose/pose" /> -->  <!--(this line is remapping the messages from topic vrpn_client_node/RigidBody/pose to /mavros/vision_pose/pose as well as stepping down the frequency  from 240hz (with which motive is publishing the data) to some specified value, here it is 100hz)--> 
+
+<remap from= "/vrpn_client_node/RigidBody/pose" to="/mavros/vision_pose/pose"/> <!-- (this is remapping the data from topic vrpn_client_node/RigidBody/pose to /mavros/vision_pose/pose) --> 
+
+<!--{for flying a single quad, use the last remapping method}--> 
+
+ 
+
+  <arg name="server" default="132.68.144.156"/> <!-- Broadcasting on IP address by Motive software--> 
+
+  
+
+  <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen"> 
+
+    <rosparam subst_value="true"> 
+
+      server: $(arg server) 
+
+      port: 3883 <!-- VRPN Broadcasting port -->     
+
+      update_frequency: 240.0 
+
+      frame_id: world 
+
+  
+
+      # Use the VRPN server's time, or the client's ROS time. 
+
+      use_server_time: false 
+
+      broadcast_tf: true 
+
+  
+
+      # Must either specify refresh frequency > 0.0, or a list of trackers to create 
+
+      refresh_tracker_frequency: 1.0 
+
+      #trackers: 
+
+      #- FirstTracker 
+
+      #- SecondTracker 
+
+    </rosparam> 
+
+  </node> 
+
+ <arg name="fcu_url" default="udp://:14550@192.168.1.168" />  <!-- ROS communicating with Flight Control Unit on the host port 14550 at the IP address 192.168.1.168 (can change the host port, IP address and other parameters by changing the setup of mavlink wifi bridge, for opening mavlink wifi bridge – if the esp8266 wifi module is set in Access Point mode– it acts like a router (Hotspot), then type 192.168.4.1 on any internet browser. If it is set in Station mode with the parameters given in the 2nd figure, then type 192.168.1.168) --> 
+
+<arg name="gcs_url" default="udp://:14556@192.168.1.115" /> <!-- ROS communicating with Ground Control Station on the client port 14555 at the IP address 192.168.1.115 --> 
+
+<!-- Note- First launch the ROS file and then connect with the qgroundcontrol, because this way ROS allows FCU to communicate with QGC as well through gcs_url. If we connect QGC with FCU first then, there is only one to one connection with QGC and FCU, and hence, qgc doesn't allow ROS to communicate with FCU.--> 
+
+<arg name="tgt_system" default="2" /> <!-- Mavlink system ID (unique for each quadcopter), through this way QGroundControl identifies multiple robots--> 
+
+<arg name="tgt_component" default="1" /> 
+
+<arg name="log_output" default="screen" /> 
+
+<arg name="fcu_protocol" default="v2.0" /> 
+
+<arg name="respawn_mavros" default="false" /> 
+
+  
+
+<include file="$(find mavros)/launch/node.launch"> 
+
+<arg name="pluginlists_yaml" value="$(find mavros)/launch/px4_pluginlists.yaml" /> 
+
+<arg name="config_yaml" value="$(find mavros)/launch/px4_config.yaml" /> 
+
+  
+
+<arg name="fcu_url" value="$(arg fcu_url)" /> 
+
+<arg name="gcs_url" value="$(arg gcs_url)" /> 
+
+<arg name="tgt_system" value="$(arg tgt_system)" /> 
+
+<arg name="tgt_component" value="$(arg tgt_component)" /> 
+
+<arg name="log_output" value="$(arg log_output)" /> 
+
+<arg name="fcu_protocol" value="$(arg fcu_protocol)" /> 
+
+<arg name="respawn_mavros" default="$(arg respawn_mavros)" /> 
+
+</include> 
+
+</launch> 

@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src/client_src/vrpn_LamportClock.t.C
+iostream.h
+-
+iostream
+-
+assert.h
+-
+vrpn_LamportClock.h
+-
+
+/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src/vrpn_Configure.h
+dinput.h
+-
+
+/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src/vrpn_LamportClock.h
+vrpn_Configure.h
+/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src/vrpn_Configure.h
+vrpn_Types.h
+/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src/vrpn_Types.h
+
+/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src/vrpn_Types.h
+vrpn_Configure.h
+/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src/vrpn_Configure.h
+

@@ -1,0 +1,1 @@
+/usr/bin/c++   -fPIC -O2 -g -DNDEBUG  -rdynamic CMakeFiles/vrpn_orientation.dir/vrpn_orientation.C.o  -o vrpn_orientation  ../libvrpn.a -lglut -lGL -lGLU ../quat/libquat.a -lm -lpthread 

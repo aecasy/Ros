@@ -1,0 +1,8 @@
+prefix=/home/meshib/meshi_ws/install
+
+Name: rmep
+Description: Description of rmep
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

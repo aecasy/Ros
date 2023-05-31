@@ -1,0 +1,1 @@
+/usr/bin/c++   -fPIC -O2 -g -DNDEBUG  -rdynamic CMakeFiles/testSharedObject.dir/testSharedObject.C.o  -o testSharedObject  ../libvrpn.a ../quat/libquat.a -lm -lpthread 

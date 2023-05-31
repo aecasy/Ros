@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/meshib/meshi_ws/build/vrpn_catkin/CMakeFiles/vrpn_src"
+		},
+		{
+			"file" : "/home/meshib/meshi_ws/build/vrpn_catkin/CMakeFiles/vrpn_src.rule"
+		},
+		{
+			"file" : "/home/meshib/meshi_ws/build/vrpn_catkin/CMakeFiles/vrpn_src-complete.rule"
+		},
+		{
+			"file" : "/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src-stamp/vrpn_src-install.rule"
+		},
+		{
+			"file" : "/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src-stamp/vrpn_src-mkdir.rule"
+		},
+		{
+			"file" : "/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src-stamp/vrpn_src-download.rule"
+		},
+		{
+			"file" : "/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src-stamp/vrpn_src-update.rule"
+		},
+		{
+			"file" : "/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src-stamp/vrpn_src-patch.rule"
+		},
+		{
+			"file" : "/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src-stamp/vrpn_src-configure.rule"
+		},
+		{
+			"file" : "/home/meshib/meshi_ws/build/vrpn_catkin/vrpn_src-prefix/src/vrpn_src-stamp/vrpn_src-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"vrpn_src"
+		],
+		"name" : "vrpn_src"
+	}
+}
